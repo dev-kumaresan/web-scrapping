@@ -1,19 +1,18 @@
 import axios from 'axios'
 import express from 'express'
-import cheerio  from 'cheerio'
+import  cheerio  from 'cheerio'
 
-const PORT = process.env.PORT || 5010
+const PORT = process.env.PORT || 5011
 const  app = express()
-axios('https://www.1tamilmv.cloud/')
+axios('https://www.justwatch.com/in/movies')
 .then(res =>{
     const htmlData = res.data
     const $ = cheerio.load(htmlData)
     const articles  = []
-    $('.ipsWidget_inner ipsPad ipsType_richText',htmlData).each((index,element)=>{
-        const title = $(element).children('').text()
-        const titleURL = $(element).children('').attr('href')
+    $('.title-list-grid .title-list-grid__item',htmlData).each((index,element)=>{
+        const titleURL = $(element).children('.title-list-grid__item--link').attr('href')
         articles.push({
-            title,
+            
             titleURL
         })
     })
