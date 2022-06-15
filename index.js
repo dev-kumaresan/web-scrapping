@@ -16,6 +16,9 @@ axios('https://www.justwatch.com/in/movies')
             titleURL
         })
     })
-    console.log(articles)
+    // console.log(articles)
+    app.get('/justdial-movies',(req,res)=>{
+            res.send(articles);
+    })
 }).catch(err => console.error(err))
 app.listen(PORT,()=>console.log(`server started on port ${PORT}`))
