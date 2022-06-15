@@ -16,7 +16,7 @@ axios('https://www.justwatch.com/in/movies')
             titleURL
         })
     })
-    // console.log(articles)
+    console.log(articles)
     app.get('/justwatch-movies',(req,res)=>{
             res.send(articles);
     })
